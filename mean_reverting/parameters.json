@@ -1,0 +1,27 @@
+{
+  "run_mod":0,
+  "mod_description":
+  {
+    "0": "mean_reverting",
+
+  },
+  "stock_name":
+  {
+    "type_mode":0,
+
+    "type_0": ["600519","000858"],
+    "type_1": ["300750","002594"]
+  },
+  "type_mode_description":
+  {
+    "0": "liqor",
+    "1": "new_energy"
+  },
+  "backtest_time_period": ["2020-01-01","2022-01-01"],
+  "data": "..\\data\\",
+  "result": "..\\result\\",
+  "data_type": ["high","low","close","open"],
+  "window": 5
+
+
+}
