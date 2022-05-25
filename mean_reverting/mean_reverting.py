@@ -1,5 +1,4 @@
 import os.path
-#import pdflatex
 import pandas as pd
 import numpy as np
 import datetime
@@ -11,14 +10,7 @@ import warnings
 import jqdatasdk
 from jqdatasdk import *
 import pymysql
-# import calender
-# import dataframe_image
-import pylatex
 import datetime
-#from pylatex import Document, Section, Subsection, Command,Package
-#from pylatex.utils import italic, NoEscape
-from pylatex import Document,Section,Subsection,Command,Package,Tabular, LongTabu,LongTable, MultiColumn, HFill,Figure
-from pylatex.utils import italic, NoEscape
 import math
 import matplotlib.pyplot as plt
 import scipy
@@ -125,7 +117,7 @@ class mean_reverting():
             plt.savefig(path_data+'corr_comb_p.pdf')
             # plt.show()
 
-           
+
 
 
         print('...')
