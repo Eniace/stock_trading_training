@@ -44,6 +44,28 @@ class mean_reverting():
         with open('parameters.json', 'r') as f:
             self.parameters = json.load(f)
 
+    def adf(ds, auto, params):
+        ds_ = ds
+        tar = adfuller(ds_.dropna(), autolag=auto)[params]
+        return tar
+
+    def rol_adf(df, window, param, auto):
+        df_ = df
+        a = window
+        auto_ = auto
+        param_ = param
+        res_adf = pd.DataFrame()
+        for col in df_.columns:
+            ds = df_[col].dropna()
+            res_col = pd.DataFrame()
+            for i in range(len(ds) + 1 - a):
+                ds_i = ds.iloc[i:i + a - 1]
+                adf_i = pd.DataFrame([adf(ds_i, auto_, param_)], index=[ds_i.index[-1]])
+                res_col = pd.concat([res_col, adf_i])
+            # df_p = ds.rolling(a).apply(lambda x: adf(x,auto_,param_))
+            res_adf[col] = res_col
+        return res_adf
+
     def mean_reverting(self):
         jqdatasdk.auth('', '')
         print(datetime.datetime.strftime(datetime.datetime.now(), "%Y-%m-%d") + ' start mean reverting training')
